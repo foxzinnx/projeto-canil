@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>PetLar</title>
+</head>
+<body>
+    <header style="background-color: #fff;">
+        <div class="header-container">
+            <div class="wrapper-header">
+                <a href="/">
+                    <div class="logo">
+                        <span>PETLAR</span>
+                    </div>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="/">Todos</a></li>
+                        <li><a href="/dogs">Cachorros</a></li>
+                        <li><a href="/cats">Gatos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <form method="GET" action="/search">
+                        <input type="search" name="q" placeholder="Qual pet você gostaria?" value="{{query}}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+
+<main>
+        <section id="animals" class="animals-section">
+            <div class="wrapper-animals">
+                {{^list}}
+                    <div class="no-list">404 Página não encontrada</div>
+                {{/list}}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
