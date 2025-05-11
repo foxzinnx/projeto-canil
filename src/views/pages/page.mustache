@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>PetLar</title>
+</head>
+<body>
+    <header style="background-color: #fff;">
+        <div class="header-container">
+            <div class="wrapper-header">
+                <a href="/">
+                    <div class="logo">
+                        <span>PETLAR</span>
+                    </div>
+                </a>
+
+                <nav>
+                    <ul>
+                        <li><a href="/">Todos</a></li>
+                        <li><a href="/dogs">Cachorros</a></li>
+                        <li><a href="/cats">Gatos</a></li>
+                    </ul>
+                </nav>
+
+                <div class="search-bar">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <form method="GET" action="/search">
+                        <input type="search" name="q" placeholder="Qual pet você gostaria?" value="{{query}}" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </header>
+
+<main>
+
+        <section id="animals" class="animals-section">
+            <div class="wrapper-animals">
+                <div class="title-div">
+                    <img src="https://t4.ftcdn.net/jpg/06/66/37/85/360_F_666378580_PMj9NX6U0lJyTp91Tn2jHdtjs4XoHHix.jpg" alt="">
+                    {{#banner}}
+                        <h1>{{title}}</h1>
+                    {{/banner}}
+                </div>
+
+                {{#query}}
+                    <div style="padding-top: 25px; font-size: 18px; font-weight: 600;">Exibindo resultados para: <span style="color: #175EA8;">{{query}}</span></div>
+                {{/query}}
+                <div class="animals-grid">
+                    {{#list}}
+                        <div class="animal--item">
+                            <div class="animal-photo">
+                                <img src="/images/{{ image }}" alt="" />
+                            </div>
+
+                            <div class="animal-info">
+                                <p id="animal-breed">{{ name }}</p>
+                                <p>{{ vaccinated }}</p>
+                                <p>Gênero: {{ gender }}</p>
+                            </div>
+                        </div>
+                    {{/list}}
+                </div>
+
+                {{^list}}
+                    <div class="no-list" style="padding-top: 25px; font-size: 18px; font-weight: 600;">Não há nenhum animal com este nome</div>
+                {{/list}}
+            </div>
+        </section>
+    </main>
+</body>
+</html>
